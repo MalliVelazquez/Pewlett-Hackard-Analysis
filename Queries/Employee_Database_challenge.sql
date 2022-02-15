@@ -68,6 +68,8 @@ ON emp.emp_no = tt.emp_no
 WHERE birth_date between '1952-01-01' and '1955-12-31'
 ORDER BY emp.emp_no ASC;
 
+SELECT * FROM retirement_titles;
+
 -- Use Dictinct with Orderby to remove duplicate rows
 SELECT DISTINCT ON (emp_no)emp_no,
    first_name,
@@ -78,5 +80,14 @@ FROM retirement_titles
 WHERE to_date = '9999-01-01'
 ORDER BY emp_no, to_date DESC;
 
+SELECT * FROM unique_titles;
 
+--Retrieve the number of titles
+SELECT COUNT(*),
+	title
+INTO retiring_title
+FROM unique_titles
+GROUP BY title
+ORDER BY count DESC;
 
+SELECT * FROM retiring_title;
