@@ -54,3 +54,29 @@ SELECT * FROM dept_manager;
 SELECT * FROM dep_emp;
 SELECT * FROM titles;
 
+--Retrieve employees and titles between 1952 & 1955
+SELECT emp.emp_no,
+       emp.first_name,
+       emp.last_name,
+       tt.title,
+       tt.from_date,
+       tt.to_date
+INTO retirement_titles
+FROM employees as emp
+INNER JOIN titles as tt
+ON emp.emp_no = tt.emp_no
+WHERE birth_date between '1952-01-01' and '1955-12-31'
+ORDER BY emp.emp_no ASC;
+
+-- Use Dictinct with Orderby to remove duplicate rows
+SELECT DISTINCT ON (emp_no)emp_no,
+   first_name,
+   last_name,
+   title
+INTO unique_titles
+FROM retirement_titles
+WHERE to_date = '9999-01-01'
+ORDER BY emp_no, to_date DESC;
+
+
+
