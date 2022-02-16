@@ -90,4 +90,27 @@ FROM unique_titles
 GROUP BY title
 ORDER BY count DESC;
 
-SELECT * FROM retiring_title;
+SELECT * FROM retiring_title; 
+
+--Export the Mentorship Eligibility table
+SELECT 
+DISTINCT ON (em.emp_no)
+     em.emp_no,
+	   em.first_name,
+	   em.last_name,
+	   em.birth_date,
+	   dept.from_date,
+	   dept.to_date,
+	   tt.title
+INTO mentorship_eligibilty
+FROM employees as em
+JOIN dept_emp as dept ON em.emp_no = dept.emp_no
+JOIN titles as tt ON em.emp_no = tt.emp_no
+WHERE dept.to_date = '9999-01-01'
+AND birth_date BETWEEN '1965-01-01' AND '1965-12-31'
+ORDER BY em.emp_no ASC;
+
+SELECT * FROM mentorship_eligibilty;
+
+
+
