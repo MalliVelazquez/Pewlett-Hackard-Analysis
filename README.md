@@ -16,7 +16,7 @@ Bellow we find several results:
 
 ![RetirementTotals](https://user-images.githubusercontent.com/96633294/154350531-e8d9282d-0d14-49e0-a688-2755a1b30e94.png)
 
-- Retiring titles that are going to be affected are bellow:
+- Retiring titles that are going to be affected bellow:
 
 ![RetirementTitles](https://user-images.githubusercontent.com/96633294/154352263-6d97b673-55a6-4c1f-8021-454da263b1f5.png)
 
